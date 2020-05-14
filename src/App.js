@@ -43,9 +43,12 @@ const App = () => {
     <div className="App">
       <header className="App-header" style={{ backgroundColor: color }}>
         <input type="text" onChange={handleSetText} value={text} />
-        <button onClick={handleSpeak}>Text to speech</button>
+        <button onClick={handleSpeak}>Введите тект и прослушайте</button>
         <br />
-        <button onClick={handleListen}>Listen</button>
+        <button onClick={handleListen}>Нажмите кнопку и назовите цвет</button>
+        {
+          Object.keys(colors).map(color => <p>{color}</p>)
+        }
       </header>
     </div>
   );
