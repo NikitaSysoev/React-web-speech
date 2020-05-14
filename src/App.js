@@ -3,6 +3,16 @@ import React, { useState } from 'react';
 import './App.css';
 import { useSpeech, useRecognition } from 'react-web-voice';
 
+const colors = {
+  красный: 'red',
+  оранжевый: 'orange',
+  жёлтый: 'yellow',
+  зелёный: 'green',
+  голубой: 'blue',
+  синий: 'darkblue',
+  фиолетовый: 'violet'
+};
+
 const App = () => {
   const [text, setText] = useState('');
   const [color, setColor] = useState('#282c34');
@@ -22,6 +32,9 @@ const App = () => {
 
   const handleListen = async () => {
     const transcript = await listen();
+    if(Object.keys(colors).includes(transcript)){
+      setColor(colors[transcript]);
+    }
   };
 
   const handleSetText = e => setText(e.target.value);
